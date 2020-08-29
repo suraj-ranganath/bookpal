@@ -14,6 +14,7 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import csv
 import os
+import config
 
 print("""
  __      __       .__                                  __           __________               __                 .__ ._. 
@@ -33,7 +34,7 @@ spreadsheet2 = client1.open('data')
 
 
 from goodreads import client
-gc = client.GoodreadsClient(***REMOVED***, ***REMOVED***)
+gc = client.GoodreadsClient(config.key, config.secret)
 
 
 url = 'https://www.goodreads.com'
@@ -41,8 +42,8 @@ request_token_url = '%s/oauth/request_token' % url
 authorize_url = '%s/oauth/authorize' % url
 access_token_url = '%s/oauth/access_token' % url
 
-consumer = oauth.Consumer(key=***REMOVED***,
-                          secret=***REMOVED***)
+consumer = oauth.Consumer(key=config.key,
+                          secret=config.secret)
 
 client = oauth.Client(consumer)
 
