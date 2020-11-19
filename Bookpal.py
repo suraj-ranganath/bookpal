@@ -157,7 +157,7 @@ def addBookToList(book_id, shelf_name):
 
 user_id = getUserId()
 username = gc.user(int(user_id)).name
-print("Hello {}, great to have you here!".format(username))
+print("Hello {}, great to have you here!!".format(username))
 
 sheetsDownloadUser()
 sheetsDownloadData()
