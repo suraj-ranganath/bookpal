@@ -133,7 +133,7 @@ def getShelfBooks(page, shelf_name):
     owned_template = Template('${base}/review/list?format=xml&v=2&id=${user_id}&sort=author&order=a&key=${dev_key}&page=${page}&per_page=100&shelf=${shelf_name}')
     body = bytes(urlencode({}),'utf-8')
     headers = {'content-type': 'application/x-www-form-urlencoded'}
-    request_url = owned_template.substitute(base=url, user_id=user_id, page=page, dev_key=***REMOVED***, shelf_name=shelf_name)
+    request_url = owned_template.substitute(base=url, user_id=user_id, page=page, dev_key=config.key, shelf_name=shelf_name)
     response, content = client.request(request_url, 'GET', body, headers)                                      
     if response['status'] != '200':
         raise Exception('Failure status: %s for page ' % response['status'] + page)
